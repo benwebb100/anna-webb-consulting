@@ -1,0 +1,7 @@
+.DS_Store
+.claude/
+*.docx
+anna-headshot.png
+node_modules/
+.vscode/
+.idea/
