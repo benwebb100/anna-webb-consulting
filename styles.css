@@ -259,8 +259,8 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 
 .credentials {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 36px;
+  grid-template-columns: 1fr 2fr;
+  gap: 48px;
   margin-top: 40px;
   padding-top: 32px;
   border-top: 1px solid var(--line);
@@ -273,7 +273,7 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--accent);
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .credentials ul {
@@ -282,14 +282,39 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   padding: 0;
 }
 
-.credentials li {
+.cred-block--quals li {
   font-size: 0.95rem;
   color: var(--ink-soft);
-  padding: 6px 0;
+  padding: 8px 0;
   border-bottom: 1px solid var(--line);
 }
 
-.credentials li:last-child { border-bottom: 0; }
+.cred-block--quals li:last-child { border-bottom: 0; }
+
+.cred-block--accreds ul {
+  columns: 2;
+  column-gap: 32px;
+}
+
+.cred-block--accreds li {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  padding: 6px 0;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  position: relative;
+  padding-left: 16px;
+}
+
+.cred-block--accreds li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 6px;
+  height: 1px;
+  background: var(--accent);
+}
 
 /* --- Clients (logo marquee) --- */
 .clients {
@@ -509,7 +534,11 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
     margin: 0 auto 8px;
   }
 
-  .credentials { grid-template-columns: 1fr; gap: 28px; }
+  .credentials { grid-template-columns: 1fr; gap: 32px; }
+}
+
+@media (max-width: 480px) {
+  .cred-block--accreds ul { columns: 1; }
 }
 
 @media (max-width: 720px) {
