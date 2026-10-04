@@ -244,6 +244,7 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 
 .about-image img {
   width: 100%;
+  height: auto;
 }
 
 .philosophy {
